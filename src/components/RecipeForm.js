@@ -1,61 +1,56 @@
-import React, { useState } from 'react';
-import { Form, Button, Container, Image } from 'semantic-ui-react';
+import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Box, Button, Card, CardContent, TextField, Typography } from '@mui/material';
+import { RecipeContext } from '../contexts/RecipeContext';
 
-const RecipeForm = ({ onSubmit }) => {
+const RecipeForm = () => {
+  const { dispatch } = useContext(RecipeContext);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [image, setImage] = useState(null);
-  const [imagePreview, setImagePreview] = useState(null);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ name, description, image });
+    dispatch({ type: 'ADD_RECIPE', payload: { name, description } });
     setName('');
     setDescription('');
-    setImage(null);
-    setImagePreview(null);
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    setImage(file);
-    setImagePreview(URL.createObjectURL(file));
+    navigate('/view-recipes');
   };
 
   return (
-    <Container textAlign="center" style={{ marginTop: '2em' }}>
-      <Form onSubmit={handleSubmit} style={{ maxWidth: '500px', margin: '0 auto' }}>
-        <Form.Input
-          label="Nombre de la Receta"
-          placeholder="Nombre"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          width={16}
-        />
-        <Form.TextArea
-          label="Descripción"
-          placeholder="Describe los detalles de la receta..."
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          required
-        />
-        <Form.Input
-          type="file"
-          label="Imagen de la Receta"
-          accept="image/*"
-          onChange={handleImageChange}
-        />
-        
-        {imagePreview && (
-          <Image src={imagePreview} size="medium" centered style={{ marginTop: '1em' }} />
-        )}
-
-        <Button type="submit" primary centered style={{ marginTop: '1em'}}>
-          Crear Receta
-        </Button>
-      </Form>
-    </Container>
+    <Box display="flex" justifyContent="center" marginTop={4}>
+      <Card variant="outlined" style={{ width: '100%', maxWidth: '600px', boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)' }}>
+        <CardContent>
+          <Typography variant="h5" component="div" gutterBottom>
+            Crear Receta
+          </Typography>
+          <form onSubmit={handleSubmit}>
+            <TextField
+              fullWidth
+              label="Nombre de la Receta"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              margin="normal"
+              required
+            />
+            <TextField
+              fullWidth
+              label="Descripción"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              margin="normal"
+              required
+              multiline
+            />
+            <Box display="flex" justifyContent="center" marginTop={2}>
+              <Button type="submit" variant="contained" style={{ backgroundColor: '#808000', color: 'white' }}>
+                Crear Receta
+              </Button>
+            </Box>
+          </form>
+        </CardContent>
+      </Card>
+    </Box>
   );
 };
 

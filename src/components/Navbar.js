@@ -1,44 +1,25 @@
-import React, { useState } from 'react';
-import { Menu } from 'semantic-ui-react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-  const [activeItem, setActiveItem] = useState('view_recipes');
-  const navigate = useNavigate();
-
-  const handleItemClick = (e, { name }) => {
-    setActiveItem(name);
-    navigate(name === 'create_recipe' ? '/create-recipe' : '/view-recipes');
-  };
-
   return (
-    <Menu 
-      secondary
-      attached="top"
-      style={{
-        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
-        position: 'sticky', 
-        top: 0, 
-        zIndex: 1000,
-        backgroundColor: '#fff' 
-      }}
-    >
-      <Menu.Item
-        name='create_recipe'
-        active={activeItem === 'create_recipe'}
-        onClick={handleItemClick}
-      >
-        Crear Receta
-      </Menu.Item>
-
-      <Menu.Item
-        name='view_recipes'
-        active={activeItem === 'view_recipes'}
-        onClick={handleItemClick}
-      >
-        Ver Recetas
-      </Menu.Item>
-    </Menu>
+    <AppBar position="sticky" sx={{ boxShadow: 3, backgroundColor: '#556B2F' }}>
+      <Toolbar>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          Recetas de Cocina
+        </Typography>
+        <Button color="inherit" component={Link} to="/create-recipe">
+          Crear Receta
+        </Button>
+        <Button color="inherit" component={Link} to="/view-recipes">
+          Ver Recetas
+        </Button>
+      </Toolbar>
+    </AppBar>
   );
 };
 
