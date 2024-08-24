@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Aplicación de Recetas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Autores
+- Mariano Leonel Ison
+- Mateo roble
 
-## Available Scripts
+## Descripción
+Este proyecto es una aplicación simple de gestión de recetas construida con React y Material UI. La aplicación permite a los usuarios crear, ver y eliminar recetas.
 
-In the project directory, you can run:
+## Características
 
-### `npm start`
+- **Agregar Recetas:** Los usuarios pueden agregar nuevas recetas a través de un formulario.
+- **Ver Recetas:** Los usuarios pueden ver todas las recetas en un formato de lista.
+- **Eliminar Recetas:** Los usuarios pueden eliminar recetas de la lista.
+- **Persistencia de Datos:** Todos los datos de las recetas se almacenan en `localStorage`, asegurando que las recetas permanezcan disponibles incluso después de refrescar la página.
+- **Interfaz Elegante:** La interfaz de usuario está construida utilizando Material UI, ofreciendo un diseño limpio y moderno.
+- **Diseño Responsivo:** La aplicación está diseñada para ser responsiva y se ve bien en diferentes tamaños de pantalla.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Pasos de instalación
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/leonel2077/recipes-app.git
+2. Navega al directorio del proyecto:
+   ```bash
+   cd recipes-app
+3. Instala las dependencias:
+   ```bash
+   npm install
+4. Inicia el servidor de desarrollo:
+   ```bash
+   npm start
+   
+La aplicación deberia estar corriendo en `http://localhost:3000`-
 
-### `npm test`
+## Uso
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Agregar una Receta
 
-### `npm run build`
+1. Navega a la página "Crear Receta" utilizando el enlace en la barra de navegación.
+2. Completa el formulario ingresando el nombre de la receta y la descripción (que puede incluir ingredientes, pasos de preparación, etc.).
+3. Haz clic en el botón "Crear Receta". Serás redirigido a la página de "Ver Recetas", donde podrás ver tu nueva receta en la lista.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Ver Recetas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Navega a la página "Ver Recetas" utilizando el enlace en la barra de navegación.
+2. En esta página, verás una lista de todas las recetas creadas. Cada receta se muestra en una tarjeta que incluye el nombre y la descripción.
+3. Si la descripción es extensa, puedes desplazarte dentro de la tarjeta para leerla completamente.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Eliminar una Receta
 
-### `npm run eject`
+1. En la página "Ver Recetas", localiza la receta que deseas eliminar.
+2. Haz clic en el icono de "X" en la esquina superior derecha de la tarjeta de la receta.
+3. La receta será eliminada de la lista y del almacenamiento local. Esta acción no se puede deshacer.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Tecnologías Utilizadas
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **React:** Biblioteca de JavaScript para construir interfaces de usuario.
+- **Material UI:** Un popular framework de UI para React que proporciona un conjunto de componentes personalizables.
+- **React Context:** Usado para manejar el estado global en la aplicación.
+- **localStorage:** API web utilizada para persistir datos en el lado del cliente.
