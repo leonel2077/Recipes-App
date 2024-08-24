@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, Button, Card, CardContent, TextField, Typography } from '@mui/material';
+import { Box, Button, Card, CardContent, TextField, Typography, TextareaAutosize } from '@mui/material';
 import { RecipeContext } from '../contexts/RecipeContext';
 
 const RecipeForm = () => {
@@ -33,15 +33,13 @@ const RecipeForm = () => {
               margin="normal"
               required
             />
-            <TextField
-              fullWidth
-              label="Descripción"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              margin="normal"
-              required
-              multiline
-            />
+            <TextareaAutosize
+            minRows={4}
+            placeholder="Descripción de la receta"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            style={{ width: '100%', margin: '16px 0', borderRadius: '4px', borderColor: 'rgba(0, 0, 0, 0.23)' }}
+          />
             <Box display="flex" justifyContent="center" marginTop={2}>
               <Button type="submit" variant="contained" style={{ backgroundColor: '#808000', color: 'white' }}>
                 Crear Receta
